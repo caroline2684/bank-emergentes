@@ -5,7 +5,7 @@
 <?php endif;?>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">Transactions</h3>
+		<h3 class="card-title">Transacciones</h3>
 		<!-- <div class="card-tools">
 			<a href="?page=accounts/manage_account" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Create New</a>
 		</div> -->
@@ -16,9 +16,9 @@
 				<thead>
 					<tr>
 						<th class="text-center">#</th>
-						<th>Date Created</th>
-						<th>Transaction</th>
-						<th>Amount</th>
+						<th>Fecha creada</th>
+						<th>Transaccion</th>
+						<th>Cantidad</th>
 					</tr>
 				</thead>
 				<tbody>

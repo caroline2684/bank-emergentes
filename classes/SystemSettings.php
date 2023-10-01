@@ -145,4 +145,3 @@ switch ($action) {
 		// echo $sysset->index();
 		break;
 }
-?>

@@ -89,8 +89,8 @@ CREATE TABLE `system_info` (
 --
 
 INSERT INTO `system_info` (`id`, `meta_field`, `meta_value`) VALUES
-(1, 'name', 'Online Banking System'),
-(6, 'short_name', 'OBS'),
+(1, 'name', 'Sistema bancario'),
+(6, 'short_name', 'SBB'),
 (11, 'logo', 'uploads/1626243720_bank.jpg'),
 (13, 'user_avatar', 'uploads/user_avatar.jpg'),
 (14, 'cover', 'uploads/1626249540_dark-bg.jpg');

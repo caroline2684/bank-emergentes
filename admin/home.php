@@ -1,4 +1,4 @@
-<h1 class="text-dark">Welcome to <?php echo $_settings->info('name') ?></h1>
+<h1 class="text-dark">Bienvenido a <?php echo $_settings->info('name') ?></h1>
 <?php
 ?>
 <hr>

@@ -1,50 +1,50 @@
-<?php 
-$user = $conn->query("SELECT * FROM `accounts` where id ='".$_settings->userdata('id')."'");
-foreach($user->fetch_array() as $k =>$v){
+<?php
+$user = $conn->query("SELECT * FROM `accounts` where id ='" . $_settings->userdata('id') . "'");
+foreach ($user->fetch_array() as $k => $v) {
 	$meta[$k] = $v;
 }
 ?>
-<?php if($_settings->chk_flashdata('success')): ?>
-<script>
-	alert_toast("<?php echo $_settings->flashdata('success') ?>",'success')
-</script>
-<?php endif;?>
+<?php if ($_settings->chk_flashdata('success')) : ?>
+	<script>
+		alert_toast("<?php echo $_settings->flashdata('success') ?>", 'success')
+	</script>
+<?php endif; ?>
 <div class="card card-outline card-primary">
 	<div class="card-body">
 		<div class="container-fluid">
 			<div id="msg"></div>
-			<form action="" id="manage-user">	
+			<form action="" id="manage-user">
 				<input type="hidden" name="id" value="<?php echo $_settings->userdata('id') ?>">
 				<div class="form-group">
-					<label for="name">First Name</label>
-					<input type="text" name="firstname" id="firstname" class="form-control" value="<?php echo isset($meta['firstname']) ? $meta['firstname']: '' ?>" required>
+					<label for="name">Nombre</label>
+					<input type="text" name="firstname" id="firstname" class="form-control" value="<?php echo isset($meta['firstname']) ? $meta['firstname'] : '' ?>" required>
 				</div>
 				<div class="form-group">
-					<label for="name">Last Name</label>
-					<input type="text" name="lastname" id="lastname" class="form-control" value="<?php echo isset($meta['lastname']) ? $meta['lastname']: '' ?>" required>
+					<label for="name">Apellido</label>
+					<input type="text" name="lastname" id="lastname" class="form-control" value="<?php echo isset($meta['lastname']) ? $meta['lastname'] : '' ?>" required>
 				</div>
 				<div class="form-group">
-					<label for="email">Email</label>
-					<input type="text" name="email" id="email" class="form-control" value="<?php echo isset($meta['email']) ? $meta['email']: '' ?>" required  autocomplete="off">
+					<label for="email">Correo</label>
+					<input type="text" name="email" id="email" class="form-control" value="<?php echo isset($meta['email']) ? $meta['email'] : '' ?>" required autocomplete="off">
 				</div>
 				<div class="form-group">
-					<label for="password">Password</label>
+					<label for="password">Contraseña</label>
 					<input type="password" name="password" id="password" class="form-control" value="" autocomplete="off">
-					<small><i>Leave this blank if you dont want to change the password.</i></small>
+					<small><i>Deja este espacio vacio si no deseas cambiar tu contraseña.</i></small>
 				</div>
 			</form>
 		</div>
 	</div>
 	<div class="card-footer">
-			<div class="col-md-12">
-				<div class="row">
-					<button class="btn btn-sm btn-primary" form="manage-user">Update</button>
-				</div>
+		<div class="col-md-12">
+			<div class="row">
+				<button class="btn btn-sm btn-primary" form="manage-user">Actualizar</button>
 			</div>
 		</div>
+	</div>
 </div>
 <style>
-	img#cimg{
+	img#cimg {
 		height: 15vh;
 		width: 15vh;
 		object-fit: cover;
@@ -52,36 +52,35 @@ foreach($user->fetch_array() as $k =>$v){
 	}
 </style>
 <script>
-	function displayImg(input,_this) {
-	    if (input.files && input.files[0]) {
-	        var reader = new FileReader();
-	        reader.onload = function (e) {
-	        	$('#cimg').attr('src', e.target.result);
-	        }
+	function displayImg(input, _this) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				$('#cimg').attr('src', e.target.result);
+			}
 
-	        reader.readAsDataURL(input.files[0]);
-	    }
+			reader.readAsDataURL(input.files[0]);
+		}
 	}
-	$('#manage-user').submit(function(e){
+	$('#manage-user').submit(function(e) {
 		e.preventDefault();
 		start_loader()
 		$.ajax({
-			url:_base_url_+'classes/Users.php?f=save_client',
+			url: _base_url_ + 'classes/Users.php?f=save_client',
 			data: new FormData($(this)[0]),
-		    cache: false,
-		    contentType: false,
-		    processData: false,
-		    method: 'POST',
-		    type: 'POST',
-			success:function(resp){
-				if(resp ==1){
+			cache: false,
+			contentType: false,
+			processData: false,
+			method: 'POST',
+			type: 'POST',
+			success: function(resp) {
+				if (resp == 1) {
 					location.reload()
-				}else{
+				} else {
 					$('#msg').html('<div class="alert alert-danger">Username already exist</div>')
 					end_loader()
 				}
 			}
 		})
 	})
-
 </script>

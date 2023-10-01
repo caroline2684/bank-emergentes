@@ -7,7 +7,7 @@
 	<div class="card-header">
 		<h3 class="card-title">Lista de Anuncios</h3>
 		<div class="card-tools">
-			<a href="?page=announcements/manage_announcement" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Create New</a>
+			<a href="?page=announcements/manage_announcement" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Nuevo</a>
 		</div>
 	</div>
 	<div class="card-body">
